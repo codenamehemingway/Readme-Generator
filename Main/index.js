@@ -17,6 +17,96 @@ const questions = [
       }
     },
   },
+  {
+    type: "input",
+    name: "github",
+    message: "Enter your GitHub username:",
+    validate: (githubInput) => {
+      if (githubInput) {
+        return true;
+      } else {
+        console.log(
+          "Please link to your GitHub repo so users know where to find your work"
+        );
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Enter your email address:",
+    validate: (emailInput) => {
+      if (emailInput) {
+        return true;
+      } else {
+        console.log("You must provide an email address");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "title",
+    message: "What is the title of your project?",
+    validate: (titleInput) => {
+      if (titleInput) {
+        return true;
+      } else {
+        console.log("Please provide a project title.");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "description",
+    message: "Enter your project description here:",
+    validate: (descriptionInput) => {
+      if (descriptionInput) {
+        return true;
+      } else {
+        console.log(
+          "It is essential to provide a description of your project."
+        );
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "Instructions for usage:",
+    validate: (usageInput) => {
+      if (usageInput) {
+        return true;
+      } else {
+        console.log(
+          "Providing instructions for usage will help users properly navigate your project. Please try again."
+        );
+        return false;
+      }
+    },
+  },
+  {
+    type: "confirm",
+    name: "confirmLicenses",
+    message: "Would you like to include a license?",
+    default: false,
+  },
+  {
+    type: "list",
+    name: "licenses",
+    message: "What license would you like to include?",
+    choices: ["MIT", "GPL", "CC--0"],
+    when: ({ confirmLicenses }) => {
+      if (confirmLicenses) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
 ];
 
 // TODO: Create a function to write README file
